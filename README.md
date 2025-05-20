@@ -101,8 +101,56 @@ for student in sorted(students, key=lambda student: student["name"]):
 
 ```
 ```js
+8:14
+name,number
+ALi,70%
+ROn,80%
+JOe,40%
+Doe,30%
+Aloha,55%
+--------------------------------------------
+# Import the csv module to easily read CSV files
+import csv
+
+# Create an empty list to store student dictionaries
+students = []
+
+# Open the CSV file named "names.csv"
+with open("names.csv") as file:
+    # Use csv.reader to read the file line by line
+    reader = csv.reader(file)
+    
+    # Iterate over each row in the CSV file
+    for name, number in reader:
+        # Create a dictionary for each student and add it to the list
+        students.append({"name": name, "number": number})
+
+# Sort the list of students by the "name" key and print each one
+for student in sorted(students, key=lambda student: student["name"]):
+    print(f"{student['name']} got {student['number']}")
+
 ```
 ```js
+# Import the csv module to work with CSV files
+import csv
+
+# Create an empty list to store student data
+students = []
+
+# Open the CSV file
+with open("names.csv") as file:
+    # Use DictReader to read the file into a dictionary for each row
+    reader = csv.DictReader(file)
+    
+    # Loop through each row in the CSV file
+    for row in reader:
+        # Append each row as a dictionary with keys "name" and "number"
+        students.append({"name": row["name"], "number": row["number"]})
+
+# Sort the students list by name and print the results
+for student in sorted(students, key=lambda student: student["name"]):
+    print(f"{student['name']} got {student['number']}")
+
 ```
 ```js
 ```
