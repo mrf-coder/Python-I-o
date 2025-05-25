@@ -153,6 +153,12 @@ for student in sorted(students, key=lambda student: student["name"]):
 
 ```
 ```js
+import csv
+name = input("What Your name?")
+number = input("What Your name?")
+with open("names.csv","a") as file:
+    writer = csv.writer(file)
+    writer.writerow([name,number])
 ```
 ```js
 ```
