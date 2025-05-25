@@ -155,12 +155,24 @@ for student in sorted(students, key=lambda student: student["name"]):
 ```js
 import csv
 name = input("What Your name?")
-number = input("What Your name?")
+number = input("What is your number? ")
 with open("names.csv","a") as file:
     writer = csv.writer(file)
     writer.writerow([name,number])
 ```
 ```js
+import csv
+name = input("What is your name? ")
+number = input("What is your number? ")
+
+with open("names.csv", "a+", newline='') as file:
+    writer = csv.DictWriter(file, fieldnames=["name", "number"])
+    
+    # Write header if file is empty
+    file.seek(0)
+    if not file.read(1):
+        writer.writeheader()
+    writer.writerow({"name": name, "number": number})
 ```
 ```js
 ```
